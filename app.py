@@ -14,11 +14,10 @@ def index():
 @app.route('/get',methods=['GET']) # Add an endpoint to access our API
 def get():
     exchange_data = requests.get(EXCHANGE_URL, EXCHANGE_PARAMS)  
-    weather = requests.get(WEATHER_URL,params=WEATHER_PARAMS) 
-
+   
     return jsonify({
         'usd_rates': exchange_data.json()['rates'],
-        'curr_temp': weather.json()['current']['temperature']
+
     })
 
 
